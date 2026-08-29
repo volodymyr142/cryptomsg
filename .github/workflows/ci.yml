@@ -28,8 +28,18 @@ jobs:
             exit 1
           fi
 
-      - name: Test core
-        run: ./gradlew :core:allTests
+      - name: Test core (Android)
+        run: ./gradlew :core:testAndroidHostTest
+
+      # TODO: add as each target's crypto actual implementation lands (issue #5 follow-ups)
+      # - name: Test core (JVM)
+      #   run: ./gradlew :core:jvmTest
+      # - name: Test core (JS)
+      #   run: ./gradlew :core:jsTest
+      # - name: Test core (wasmJs)
+      #   run: ./gradlew :core:wasmJsTest
+      # Once all targets are covered, replace the steps above with:
+      #   run: ./gradlew :core:allTests
 
       - name: Test server
         run: ./gradlew :server:test
