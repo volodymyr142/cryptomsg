@@ -19,10 +19,13 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
 
       - name: Build
-        # :core:allTests is excluded here because it would run against the JS/wasmJs/iOS
-        # crypto stub actuals (see core's crypto/ package), which throw until those
-        # platforms get real implementations. It's run explicitly, per-target, below.
-        run: ./gradlew build -x :core:allTests
+        # These :core test tasks are excluded because `check` wires them in directly
+        # (not just via :core:allTests), and they'd run against the JS/wasmJs crypto stub
+        # actuals (see core's crypto/ package), which throw until those platforms get real
+        # implementations. iOS test tasks aren't listed: they're skipped automatically on
+        # this Linux runner via kotlin.native.ignoreDisabledTargets. Tests are run
+        # explicitly, per-target, below as each platform's crypto actual lands.
+        run: ./gradlew build -x :core:allTests -x :core:jsBrowserTest -x :core:wasmJsBrowserTest
 
       - name: No debug logging in crypto package
         run: |
