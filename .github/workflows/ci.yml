@@ -29,7 +29,7 @@ jobs:
 
       - name: No debug logging in crypto package
         run: |
-          if grep -rEn '(Log\.(d|v)\(|println\()' core/src --include='*.kt' | grep -E '/crypto/'; then
+          if grep -rEn '(Log\.(d|v)\s*\(|println\s*\()' core/src --include='*.kt' | grep -E '/crypto/'; then
             echo "::error::Debug logging found in :core crypto/ package"
             exit 1
           fi
