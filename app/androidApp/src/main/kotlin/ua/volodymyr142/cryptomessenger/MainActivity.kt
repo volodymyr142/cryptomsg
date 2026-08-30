@@ -6,6 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import org.koin.compose.KoinApplication
+import ua.volodymyr142.cryptomessenger.core.di.coreModule
+import ua.volodymyr142.cryptomessenger.di.sharedModule
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,5 +24,7 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun AppAndroidPreview() {
-    App()
+    KoinApplication(application = { modules(coreModule, sharedModule) }) {
+        App()
+    }
 }

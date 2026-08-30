@@ -15,13 +15,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.KoinApplication
+import org.koin.compose.viewmodel.koinViewModel
 
 import cryptomessenger.app.shared.generated.resources.Res
 import cryptomessenger.app.shared.generated.resources.compose_multiplatform
+import ua.volodymyr142.cryptomessenger.core.di.coreModule
+import ua.volodymyr142.cryptomessenger.di.sharedModule
 
 @Composable
-@Preview
 fun App() {
+    val viewModel = koinViewModel<AppViewModel>()
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(
@@ -45,5 +49,13 @@ fun App() {
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun AppPreview() {
+    KoinApplication(application = { modules(coreModule, sharedModule) }) {
+        App()
     }
 }
