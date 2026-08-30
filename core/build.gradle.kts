@@ -44,5 +44,15 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+
+        // Crypto tests live in a shared physical directory and are wired into the
+        // targets whose crypto actuals are implemented (JVM, Android). Move them back
+        // to commonTest once the remaining targets (iOS/JS/wasmJs) have real actuals.
+        getByName("jvmTest") {
+            kotlin.srcDir("src/supportedCryptoTest/kotlin")
+        }
+        getByName("androidHostTest") {
+            kotlin.srcDir("src/supportedCryptoTest/kotlin")
+        }
     }
 }
