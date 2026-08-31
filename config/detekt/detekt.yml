@@ -1,0 +1,14 @@
+naming:
+  FunctionNaming:
+    ignoreAnnotated: ["Composable"]
+    excludes: ["**/test/**", "**/*Test/**", "**/*Test.kt"]
+  MatchingDeclarationName:
+    # Kotlin Multiplatform `expect`/`actual` platform files conventionally share the
+    # `Platform.<target>.kt` file name while declaring a platform-suffixed type.
+    excludes: ["**/Platform.*.kt", "**/SymmetricCipher.*.kt"]
+
+style:
+  MaxLineLength:
+    maxLineLength: 140
+  MagicNumber:
+    excludes: ["**/test/**", "**/*Test/**", "**/*Test.kt"]

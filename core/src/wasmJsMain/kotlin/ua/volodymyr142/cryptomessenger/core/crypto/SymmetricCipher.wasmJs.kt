@@ -5,7 +5,7 @@ actual object SymmetricCipher {
         key: ByteArray,
         iv: ByteArray,
         plaintext: ByteArray,
-        aad: ByteArray
+        aad: ByteArray,
     ): ByteArray {
         throw UnsupportedOperationException("AES-GCM not yet implemented for wasmJs target; see issue #5 follow-up")
     }
@@ -14,7 +14,7 @@ actual object SymmetricCipher {
         key: ByteArray,
         iv: ByteArray,
         ciphertextWithTag: ByteArray,
-        aad: ByteArray
+        aad: ByteArray,
     ): ByteArray {
         throw UnsupportedOperationException("AES-GCM not yet implemented for wasmJs target; see issue #5 follow-up")
     }

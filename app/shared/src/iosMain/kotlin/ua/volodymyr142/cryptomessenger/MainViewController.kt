@@ -5,8 +5,13 @@ import org.koin.compose.KoinApplication
 import ua.volodymyr142.cryptomessenger.core.di.coreModule
 import ua.volodymyr142.cryptomessenger.di.sharedModule
 
-fun MainViewController() = ComposeUIViewController {
-    KoinApplication(application = { modules(coreModule, sharedModule) }) {
-        App()
+@Suppress(
+    "FunctionNaming",
+    "ktlint:standard:function-naming",
+)
+fun MainViewController() =
+    ComposeUIViewController {
+        KoinApplication(application = { modules(coreModule, sharedModule) }) {
+            App()
+        }
     }
-}
