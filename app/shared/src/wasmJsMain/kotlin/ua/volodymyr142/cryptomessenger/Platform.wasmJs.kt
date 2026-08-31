@@ -1,6 +1,6 @@
 package ua.volodymyr142.cryptomessenger
 
-class WasmPlatform: Platform {
+class WasmPlatform : Platform {
     override val name: String = "Web with Kotlin/Wasm"
 }
 

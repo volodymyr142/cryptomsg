@@ -12,8 +12,17 @@ package ua.volodymyr142.cryptomessenger.core.crypto
  * message from ratchet state.
  */
 expect object SymmetricCipher {
+    fun encrypt(
+        key: ByteArray,
+        iv: ByteArray,
+        plaintext: ByteArray,
+        aad: ByteArray,
+    ): ByteArray
 
-    fun encrypt(key: ByteArray, iv: ByteArray, plaintext: ByteArray, aad: ByteArray): ByteArray
-    
-    fun decrypt(key: ByteArray, iv: ByteArray, ciphertextWithTag: ByteArray, aad: ByteArray): ByteArray
+    fun decrypt(
+        key: ByteArray,
+        iv: ByteArray,
+        ciphertextWithTag: ByteArray,
+        aad: ByteArray,
+    ): ByteArray
 }

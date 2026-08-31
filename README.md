@@ -1,3 +1,5 @@
+[![CI](https://github.com/volodymyr142/cryptomsg/actions/workflows/ci.yml/badge.svg)](https://github.com/volodymyr142/cryptomsg/actions/workflows/ci.yml)
+
 This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop (JVM), Server.
 
 * [/app/iosApp](./app/iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
